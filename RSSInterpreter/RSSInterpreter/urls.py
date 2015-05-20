@@ -17,5 +17,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
+
+	# Since this is a one-page web project, the root URL should point to the single app
     url(r'^', include('rssMetaDataViewer.urls')),
 ]

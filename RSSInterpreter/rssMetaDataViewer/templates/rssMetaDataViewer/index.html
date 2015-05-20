@@ -1,0 +1,11 @@
+{% if videos %}
+    {% for video in videos %}
+    <ul>
+        <li>Video Codec: {{ video.codec }}</li>
+        <li>Video Duration: {{ video.duration }} seconds</li>
+        <li>Video Bitrate: {{ video.bitrate }} kb/s</li>
+    </ul>
+    {% endfor %}
+{% else %}
+    <p>No mRSS feed videos are available.</p>
+{% endif %}

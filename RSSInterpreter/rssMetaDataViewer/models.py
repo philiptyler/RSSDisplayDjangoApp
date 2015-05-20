@@ -1,5 +1,11 @@
 from django.db import models
 
+# Manager class for creating/controlling RssVideoManager models
+class RssVideoManager(models.Manager):
+    def createRssVideo(self, codec, duration, bitrate):
+        rssVideo = self.create(codec=codec, duration=duration, bitrate=bitrate)
+        return rssVideo
+
 # Model for storing video meta data from an RSS feed
 class RssVideo(models.Model):
 
@@ -12,3 +18,6 @@ class RssVideo(models.Model):
 
     # Data rate of movie clip in kb/s (Ex: "128")
     bitrate = models.IntegerField()
+
+    # Bind this model to its manager
+    objects = RssVideoManager()
