@@ -29,14 +29,15 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-# Commented out apps because there is no DB
+
 INSTALLED_APPS = (
-    # 'django.contrib.admin',
-    # 'django.contrib.auth',
-    # 'django.contrib.contenttypes',
-    # 'django.contrib.sessions',
-    # 'django.contrib.messages',
-    # 'django.contrib.staticfiles',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'rssMetaDataViewer'
 )
 
 MIDDLEWARE_CLASSES = (

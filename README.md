@@ -12,5 +12,5 @@ Python Script to Parse an RSS Feed and:
 - Create unit tests to test RSS metadata logic
 
 ## TOOLS
-Python 3.4.0
+Python 2.7.6
 Django 1.8.1
