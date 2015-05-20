@@ -1,6 +1,7 @@
 {% if videos %}
+	<h4>Found {{ videos|length }} video in mRSS Feed</h4>
     {% for video in videos %}
-    <ul>
+    <ul>Video #{{ forloop.counter }}
         <li>Video Codec: {{ video.codec }}</li>
         <li>Video Duration: {{ video.duration }} seconds</li>
         <li>Video Bitrate: {{ video.bitrate }} kb/s</li>
