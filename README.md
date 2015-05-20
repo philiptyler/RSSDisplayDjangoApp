@@ -11,3 +11,6 @@ Python Script to Parse an RSS Feed and:
 - Create an HTML page to show smallest thumbnail and all dict values (Excluding null or 0)
 - Create unit tests to test RSS metadata logic
 
+## TOOLS
+Python 3.4.0
+Django 1.8.1
