@@ -3,8 +3,9 @@ from django.shortcuts import render
 from utility.rssHelpers import feedparserWrapper
 from .models import RssVideo
 
+# single page view for app, takes dict of RSS feed data
+# and displays its important data in the index.html template
 def index(request):
-	# testVideo = RssVideo(codec="video/mp4", duration=185, bitrate=128)
 	parser = feedparserWrapper()
 	context = { 'rssData': parser.getRssData() }
 

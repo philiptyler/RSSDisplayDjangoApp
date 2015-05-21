@@ -14,7 +14,10 @@ class RssMetaDataViewerViewTests(SimpleTestCase):
 class RssHelpersTests(SimpleTestCase):
 
     def setUp(self):
-        self.testEntry = {'media_content': [{
+        self.testEntry = {'title': 'Some Title',
+        'media_credit': [{ 'content': 'Red Bull' }],
+        'media_content': [{
+            'url': u'http://www.img.com/movie.mp4',
             'type': 'video/mp4',
             'duration': "60",
             'filesize': "61440" # <-- 1 KB/s because 6144 B * (1 KB / 1024 B) / 60 s = 1
@@ -26,13 +29,13 @@ class RssHelpersTests(SimpleTestCase):
           {'url': u'http://www.img.com/img1_max.jpg', 'width': u'560', 'height': u'480'}
         ]}
 
-    def test_createRssDictFromEntry_validMetaData_returnValidDict(self):
+    def test_createVideoDictsFromEntry_validMetaData_returnValidDict(self):
         """
         createRssDictFromEntry should parse the media_content dict, retrieve the type, duration and fileSize
         then use those strings to create the codec string, duration int and bitrate int
         """
         parser = feedparserWrapper()
-        videoDicts = parser.createRssDictFromEntry(self.testEntry)
+        videoDicts = parser.createVideoDictsFromEntry(self.testEntry)
         self.assertEqual(videoDicts[0]['codec'], "mp4")
         self.assertEqual(videoDicts[0]['duration'], 60)
         self.assertEqual(videoDicts[0]['bitrate'], 1)

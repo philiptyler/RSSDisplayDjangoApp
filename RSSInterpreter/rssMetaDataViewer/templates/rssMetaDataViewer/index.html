@@ -2,7 +2,7 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'css/skeleton.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'css/rssMetaDataView.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/rssMetaDataViewer.css' %}" />
 
 <div class="container">
 {% if rssData %}
@@ -10,21 +10,23 @@
     {% for rssDataDict in rssData %}
     	<div class="row">
     		<div class="five columns">
-	    <h4> {{ rssDataDict.title }} </h4>
-	    {% for video in rssDataDict.videoData %}
-		    <ul>Video File #{{ forloop.counter }}
-		        <li>Codec: {{ video.codec }}</li>
-		        <li>Duration: {{ video.duration }} seconds</li>
-		        <li>Bitrate: {{ video.bitrate }} kb/s</li>
-		    </ul>
-	    {% endfor %}
+			    <h4> {{ rssDataDict.title }} </h4>
+			    <h5> {{ rssDataDict.mediaCredit }} </h5>
+			    {% for video in rssDataDict.videoData %}
+			    <a href="{{ rssDataDict.videoUrl }}"> Video File</a>
+				    <ul>
+				        <li>Codec: {{ video.codec }}</li>
+				        <li>Duration: {{ video.duration }} seconds</li>
+				        <li>Bitrate: {{ video.bitrate }} KB/s</li>
+				    </ul>
+			    {% endfor %}
+			</div>
+			<div class="six columns">
+		    	<img src="{{ rssDataDict.thumbnailUrl }}" />
+			</div>
 		</div>
-		<div class="seven columns">
-	    <img src="{{ rssDataDict.thumbnailUrl }}" />
-	</div>
-	</div>
     {% endfor %}
 {% else %}
-    <p>No mRSS feed videos are available.</p>
+    <h2>No mRSS feed videos are available.</h2>
 {% endif %}
 </div>

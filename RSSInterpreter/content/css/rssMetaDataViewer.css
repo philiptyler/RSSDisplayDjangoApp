@@ -3,3 +3,24 @@
 h1, h2, h3, h4 {
 	color: #0A85AD;
 }
+
+.five.columns {
+	border-top: 1px #A5DFF2 solid;
+	padding-top: 7px;
+}
+
+h4 {
+	line-height: 0.65
+}
+
+h5{
+	line-height: 0.35;
+}
+
+li {
+	margin-bottom: 0;
+}
+
+a {
+	color: #F29924;
+}
