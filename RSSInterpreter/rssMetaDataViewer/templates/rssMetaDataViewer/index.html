@@ -1,12 +1,30 @@
-{% if videos %}
-	<h4>Found {{ videos|length }} video in mRSS Feed</h4>
-    {% for video in videos %}
-    <ul>Video #{{ forloop.counter }}
-        <li>Video Codec: {{ video.codec }}</li>
-        <li>Video Duration: {{ video.duration }} seconds</li>
-        <li>Video Bitrate: {{ video.bitrate }} kb/s</li>
-    </ul>
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/skeleton.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/rssMetaDataView.css' %}" />
+
+<div class="container">
+{% if rssData %}
+	<h2>Found {{ rssData|length }} video in mRSS Feed</h2>
+    {% for rssDataDict in rssData %}
+    	<div class="row">
+    		<div class="five columns">
+	    <h4> {{ rssDataDict.title }} </h4>
+	    {% for video in rssDataDict.videoData %}
+		    <ul>Video File #{{ forloop.counter }}
+		        <li>Codec: {{ video.codec }}</li>
+		        <li>Duration: {{ video.duration }} seconds</li>
+		        <li>Bitrate: {{ video.bitrate }} kb/s</li>
+		    </ul>
+	    {% endfor %}
+		</div>
+		<div class="seven columns">
+	    <img src="{{ rssDataDict.thumbnailUrl }}" />
+	</div>
+	</div>
     {% endfor %}
 {% else %}
     <p>No mRSS feed videos are available.</p>
 {% endif %}
+</div>
