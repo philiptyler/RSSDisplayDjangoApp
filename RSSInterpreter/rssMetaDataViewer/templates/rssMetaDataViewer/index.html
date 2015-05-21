@@ -6,7 +6,7 @@
 
 <div class="container">
 {% if rssData %}
-	<h2>Found {{ rssData|length }} video in mRSS Feed</h2>
+	<h2>Found {{ rssData|length }} video{{ rssData|length|pluralize:",s" }} in mRSS Feed</h2>
     {% for rssDataDict in rssData %}
     	<div class="row">
     		<div class="five columns">
