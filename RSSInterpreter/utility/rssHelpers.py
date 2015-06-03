@@ -5,6 +5,7 @@ import feedparser
 class feedparserWrapper:
 
 	defaultUrl = 'http://www.wdcdn.net/rss/presentation/library/client/iowa/id/128b053b916ea1f7f20233e8a26bc45d'
+	# defaultUrl = 'http://feeds.feedburner.com/crunchnotes'
 
 	# optional argument to give custom URL
 	def __init__(self, **kwargs):
@@ -23,14 +24,14 @@ class feedparserWrapper:
 				'title': entry['title'],
 				'videoUrl': entry['media_content'][0]['url'],
 				'mediaCredit': entry['media_credit'][0]['content'], # <-- Only displays first media credit (should be refactored for all)
-				'videoData': self.createVideoDictsFromEntry(entry),
-				'thumbnailUrl': self.getSmallestThumbnailFromEntry(entry)
+				'videoData': self._createVideoDictsFromEntry(entry),
+				'thumbnailUrl': self._getSmallestThumbnailFromEntry(entry)
 			})
 
 		return rssDataDict
 
 	# convert the strings in the content dict to more commom readable entries
-	def createVideoDictsFromEntry(self, entry):
+	def _createVideoDictsFromEntry(self, entry):
 		# entry could be a media:group and have multiple contents in media_content
 		rssVideoDataDicts = []
 		for content in entry['media_content']:
@@ -43,7 +44,7 @@ class feedparserWrapper:
 
 		return rssVideoDataDicts
 
-	def getSmallestThumbnailFromEntry(self, entry):
+	def _getSmallestThumbnailFromEntry(self, entry):
 		smallestThumbnailSize = 0
 		smallestThumbnailUrl = ""
 		for thumbnail in entry['media_thumbnail']:

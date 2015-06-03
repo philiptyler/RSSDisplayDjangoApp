@@ -1,13 +1,13 @@
-# WireDrive Assignment
-mRSS coding test for WireDrive
+# RSS Feed Parser
+Django Web app for parsing an mRSS feed
 
 ## AUTHOR
 Philip Tyler, 2015
 
 ## TOOLS
-Python 2.7.6
-Django 1.8.1
-feedparser 5.2.0 (https://pypi.python.org/pypi/feedparser)
+- Python 2.7.6
+- Django 1.8.1
+- feedparser 5.2.0 (https://pypi.python.org/pypi/feedparser)
 
 ## SUMMARY 
 Python Script to Parse an RSS Feed and:
